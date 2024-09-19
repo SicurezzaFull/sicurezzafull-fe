@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class SpacesService {
     public spacesEndpoint = new AWS.Endpoint(environment.spacesEndpoint);
-    public bucketName = 'cimapiazzi';
+    public bucketName = 'sicurezzafull';
 
     public s3 = new AWS.S3({
         endpoint: this.spacesEndpoint,

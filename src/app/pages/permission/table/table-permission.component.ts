@@ -127,7 +127,7 @@ export class TablePermissionComponent implements OnInit, OnDestroy {
                     this.emailService
                         .sendEmail(
                             permission?.user?.email,
-                            'CIMAPIAZZI - Permesso approvato - ' + permission?.id,
+                            'SICUREZZAFULL - Permesso approvato - ' + permission?.id,
                             messageEmail,
                         )
                         .subscribe(
@@ -156,7 +156,7 @@ export class TablePermissionComponent implements OnInit, OnDestroy {
                     this.emailService
                         .sendEmail(
                             permission?.user?.email,
-                            'CIMAPIAZZI - Permesso Negato - ' + permission?.id,
+                            'SICUREZZAFULL - Permesso Negato - ' + permission?.id,
                             "E' stato negato il suo permesso",
                         )
                         .subscribe(

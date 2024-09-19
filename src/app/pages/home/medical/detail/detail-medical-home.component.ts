@@ -167,7 +167,7 @@ export class DetailMedicalHomeComponent implements OnInit {
         this.emailService
             .sendEmail(
                 this.adminEmails,
-                'CIMAPIAZZI - Numero protocollo malattia - ' +
+                'SICUREZZAFULL - Numero protocollo malattia - ' +
                     this.medicalForm.value.protocolNumber +
                     ' ' +
                     this.permission.user?.name +
@@ -203,7 +203,7 @@ export class DetailMedicalHomeComponent implements OnInit {
             this.emailService
                 .sendEmail(
                     this.permission.user?.email,
-                    'CIMAPIAZZI - Numero protocollo malattia - ' +
+                    'SICUREZZAFULL - Numero protocollo malattia - ' +
                         this.medicalForm.value.protocolNumber +
                         ' ' +
                         this.permission.user?.name +

@@ -212,7 +212,7 @@ export class ListMedicalHomeComponent implements OnInit {
         this.emailService
             .sendEmail(
                 this.adminEmails,
-                'CIMAPIAZZI - Avviso malattia - ' +
+                'SICUREZZAFULL - Avviso malattia - ' +
                     this.currentUser?.name +
                     ' ' +
                     this.currentUser?.surname,
@@ -239,7 +239,7 @@ export class ListMedicalHomeComponent implements OnInit {
             this.emailService
                 .sendEmail(
                     this.currentUser.email,
-                    'CIMAPIAZZI - Avviso malattia - ' +
+                    'SICUREZZAFULL - Avviso malattia - ' +
                         this.currentUser?.name +
                         ' ' +
                         this.currentUser?.surname,

@@ -209,7 +209,7 @@ export class PermissionHomeComponent implements OnInit {
         this.emailService
             .sendEmail(
                 this.adminEmails,
-                'CIMAPIAZZI - Richiesta permesso - ' +
+                'SICUREZZAFULL - Richiesta permesso - ' +
                 this.currentUser?.name +
                 ' ' +
                 this.currentUser?.surname,
