@@ -166,7 +166,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
                     this.emailService
                         .sendEmail(
                             permission?.user?.email,
-                            'CIMAPIAZZI - Permesso approvato - ' + permission?.id,
+                            'Sicurezza Full - Permesso approvato - ' + permission?.id,
                             messageEmail,
                         )
                         .subscribe(
@@ -195,7 +195,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
                     this.emailService
                         .sendEmail(
                             permission?.user?.email,
-                            'CIMAPIAZZI - Permesso Negato - ' + permission?.id,
+                            'Sicurezza Full - Permesso Negato - ' + permission?.id,
                             "E' stato negato il suo permesso",
                         )
                         .subscribe(
