@@ -114,6 +114,12 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-file',
                         routerLink: [ROUTES.ROUTE_CREATE_DOCUMENT],
                     },
+                    {
+                        label: 'Generate document',
+                        translationCode: 'menu.routes.documents.generate',
+                        icon: 'pi pi-file',
+                        routerLink: [ROUTES.ROUTE_CREATE_CONTRATTI],
+                    },
                 ],
             });
             this.model.push({
@@ -134,24 +140,24 @@ export class AppMenuComponent implements OnInit {
                     },
                 ],
             });
-            this.model.push({
-                label: 'Vehicles',
-                translationCode: 'menu.routes.vehicle.menuTitle',
-                items: [
-                    {
-                        label: 'Lista veicoli',
-                        translationCode: 'menu.routes.vehicle.table',
-                        icon: 'pi pi-list',
-                        routerLink: [ROUTES.ROUTE_TABLE_VEHICLE],
-                    },
-                    {
-                        label: 'Aggiungi veicolo',
-                        translationCode: 'menu.routes.vehicle.create',
-                        icon: 'pi pi-car',
-                        routerLink: [ROUTES.ROUTE_CREATE_VEHICLE],
-                    },
-                ],
-            });
+            // this.model.push({
+            //     label: 'Vehicles',
+            //     translationCode: 'menu.routes.vehicle.menuTitle',
+            //     items: [
+            //         {
+            //             label: 'Lista veicoli',
+            //             translationCode: 'menu.routes.vehicle.table',
+            //             icon: 'pi pi-list',
+            //             routerLink: [ROUTES.ROUTE_TABLE_VEHICLE],
+            //         },
+            //         {
+            //             label: 'Aggiungi veicolo',
+            //             translationCode: 'menu.routes.vehicle.create',
+            //             icon: 'pi pi-car',
+            //             routerLink: [ROUTES.ROUTE_CREATE_VEHICLE],
+            //         },
+            //     ],
+            // });
         }
         if (
             userRoles.includes('ROLE_ADMIN') ||

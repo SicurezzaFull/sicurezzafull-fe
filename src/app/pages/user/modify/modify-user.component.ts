@@ -87,7 +87,6 @@ export class ModifyUserComponent implements OnInit {
 
     checkInForm = this.fb.group({
         placeId: null,
-        vehicleId: null,
     });
     constructor(
         public fb: FormBuilder,
@@ -114,7 +113,7 @@ export class ModifyUserComponent implements OnInit {
 
     fetchCountries() {
         const allCountries = new getData();
-        const priorityCountries = ['Italy', 'Peru', 'Ecuador', 'El Salvador'];
+        const priorityCountries = ['Italia', 'Peru', 'Ecuador', 'El Salvador'];
 
         // Add priority countries first
         priorityCountries.forEach((country) => {
@@ -149,16 +148,16 @@ export class ModifyUserComponent implements OnInit {
                     ? user?.companies[0]?.id
                     : '';
                 this.placesItems = user?.companies[0]?.places;
-                this.vehiclesItems = user?.companies[0]?.vehicles;
+                // this.vehiclesItems = user?.companies[0]?.vehicles;
                 const roleId = user?.roles[0]?.id ? user.roles[0].id : '';
 
-                const vehicleServiceSubscription = this.vehicleService
-                    .getAllVehicles(0)
-                    .subscribe((vehicles) => {
-                        this.vehiclesItems = vehicles;
-                    });
-                if (vehicleServiceSubscription && this.subscription)
-                    this.subscription.add(vehicleServiceSubscription);
+                // const vehicleServiceSubscription = this.vehicleService
+                //     .getAllVehicles(0)
+                //     .subscribe((vehicles) => {
+                //         this.vehiclesItems = vehicles;
+                //     });
+                // if (vehicleServiceSubscription && this.subscription)
+                //     this.subscription.add(vehicleServiceSubscription);
 
                 this.modifyForm.patchValue({
                     id: this.idUser,
@@ -281,7 +280,7 @@ export class ModifyUserComponent implements OnInit {
                 this.idUser,
                 this.companyId,
                 this.checkInForm.value.placeId,
-                this.checkInForm.value.vehicleId,
+                null,
             )
             .subscribe((res) => {
                 this.router.navigate([ROUTES.ROUTE_TABLE_USER]);

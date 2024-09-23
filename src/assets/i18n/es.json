@@ -111,7 +111,8 @@
             },
             "documents": {
                 "menuTitle": "Documentos",
-                "create": "Agrega documentos"
+                "create": "Agrega documentos",
+                "generate": "Genera contratos"
             },
             "permission": {
                 "menuTitle": "Permisos",

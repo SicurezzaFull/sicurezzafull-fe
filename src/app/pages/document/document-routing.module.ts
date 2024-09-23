@@ -12,6 +12,14 @@ import { RouterModule } from '@angular/router';
                     import('./create/create-document.module').then(
                         (m) => m.CreateDocumentModule
                     ),
+            },
+            {
+                path: 'generate',
+                data: { breadcrumb: 'Contratto' },
+                loadChildren: () =>
+                    import('./contratto/contratto-document.module').then(
+                        (m) => m.ContrattoDocumentModule
+                    ),
             }
 
         ]),

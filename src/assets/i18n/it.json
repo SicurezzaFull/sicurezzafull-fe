@@ -110,8 +110,9 @@
                 "table": "Tabella"
             },
             "documents": {
-                "menuTitle": "Cedolini",
-                "create": "Aggiungi cedolini"
+                "menuTitle": "Documenti/Cedolini",
+                "create": "Aggiungi cedolini",
+                "generate": "Genera contratti"
             },
             "permission": {
                 "menuTitle": "Permessi e malattie",

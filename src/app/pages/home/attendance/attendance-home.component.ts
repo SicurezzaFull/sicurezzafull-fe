@@ -77,15 +77,15 @@ export class AttendanceHomeComponent implements OnInit, OnDestroy {
 
     checkInForm = this.fb.group({
         placeId: null,
-        vehicleId: null,
-        includeFacchinaggio: null,
-        facchinaggioNameClient: '',
-        facchinaggioAddressClient: '',
-        facchinaggioValue: null,
-        includeViaggioExtra: null,
-        viaggioExtraNameClient: '',
-        viaggioExtraAddressClient: '',
-        viaggioExtraValue: null,
+        // vehicleId: null,
+        // includeFacchinaggio: null,
+        // facchinaggioNameClient: '',
+        // facchinaggioAddressClient: '',
+        // facchinaggioValue: null,
+        // includeViaggioExtra: null,
+        // viaggioExtraNameClient: '',
+        // viaggioExtraAddressClient: '',
+        // viaggioExtraValue: null,
     });
     includeFacchinaggio: null;
     includeViaggioExtra: null;
@@ -125,52 +125,52 @@ export class AttendanceHomeComponent implements OnInit, OnDestroy {
             this.storeUser = authS?.user || '';
             this.getLocation(this.storeUser);
         });
-        this.checkInForm.get('includeFacchinaggio').valueChanges.subscribe((includeFacchinaggio) => {
-            if (includeFacchinaggio) {
-                // Set validators for required fields when includeFacchinaggio is true
-                this.checkInForm.get('facchinaggioNameClient').setValidators([Validators.required]);
-                this.checkInForm.get('facchinaggioAddressClient').setValidators([Validators.required]);
-                this.checkInForm.get('facchinaggioValue').setValidators([Validators.required]);
-            } else {
-                // Remove validators when includeFacchinaggio is false
-                this.checkInForm.get('facchinaggioNameClient').clearValidators();
-                this.checkInForm.get('facchinaggioAddressClient').clearValidators();
-                this.checkInForm.get('facchinaggioValue').clearValidators();
-                this.checkInForm.patchValue({
-                    facchinaggioNameClient: null,
-                    facchinaggioAddressClient: null,
-                    facchinaggioValue: null
-                });
+        // this.checkInForm.get('includeFacchinaggio').valueChanges.subscribe((includeFacchinaggio) => {
+        //     if (includeFacchinaggio) {
+        //         // Set validators for required fields when includeFacchinaggio is true
+        //         this.checkInForm.get('facchinaggioNameClient').setValidators([Validators.required]);
+        //         this.checkInForm.get('facchinaggioAddressClient').setValidators([Validators.required]);
+        //         this.checkInForm.get('facchinaggioValue').setValidators([Validators.required]);
+        //     } else {
+        //         // Remove validators when includeFacchinaggio is false
+        //         this.checkInForm.get('facchinaggioNameClient').clearValidators();
+        //         this.checkInForm.get('facchinaggioAddressClient').clearValidators();
+        //         this.checkInForm.get('facchinaggioValue').clearValidators();
+        //         this.checkInForm.patchValue({
+        //             facchinaggioNameClient: null,
+        //             facchinaggioAddressClient: null,
+        //             facchinaggioValue: null
+        //         });
 
-            }
-            // Update form controls validity
-            this.checkInForm.get('facchinaggioNameClient').updateValueAndValidity();
-            this.checkInForm.get('facchinaggioAddressClient').updateValueAndValidity();
-            this.checkInForm.get('facchinaggioValue').updateValueAndValidity();
-        });
+        //     }
+        //     // Update form controls validity
+        //     this.checkInForm.get('facchinaggioNameClient').updateValueAndValidity();
+        //     this.checkInForm.get('facchinaggioAddressClient').updateValueAndValidity();
+        //     this.checkInForm.get('facchinaggioValue').updateValueAndValidity();
+        // });
 
-        this.checkInForm.get('includeViaggioExtra').valueChanges.subscribe((includeViaggioExtra) => {
-            if (includeViaggioExtra) {
-                // Set validators for required fields when includeViaggioExtra is true
-                this.checkInForm.get('viaggioExtraNameClient').setValidators([Validators.required]);
-                this.checkInForm.get('viaggioExtraAddressClient').setValidators([Validators.required]);
-                this.checkInForm.get('viaggioExtraValue').setValidators([Validators.required]);
-            } else {
-                // Remove validators when includeViaggioExtra is false
-                this.checkInForm.get('viaggioExtraNameClient').clearValidators();
-                this.checkInForm.get('viaggioExtraAddressClient').clearValidators();
-                this.checkInForm.get('viaggioExtraValue').clearValidators();
-                this.checkInForm.patchValue({
-                    viaggioExtraNameClient: null,
-                    viaggioExtraAddressClient: null,
-                    viaggioExtraValue: null
-                });
-            }
-            // Update form controls validity
-            this.checkInForm.get('viaggioExtraNameClient').updateValueAndValidity();
-            this.checkInForm.get('viaggioExtraAddressClient').updateValueAndValidity();
-            this.checkInForm.get('viaggioExtraValue').updateValueAndValidity();
-        });
+        // this.checkInForm.get('includeViaggioExtra').valueChanges.subscribe((includeViaggioExtra) => {
+        //     if (includeViaggioExtra) {
+        //         // Set validators for required fields when includeViaggioExtra is true
+        //         this.checkInForm.get('viaggioExtraNameClient').setValidators([Validators.required]);
+        //         this.checkInForm.get('viaggioExtraAddressClient').setValidators([Validators.required]);
+        //         this.checkInForm.get('viaggioExtraValue').setValidators([Validators.required]);
+        //     } else {
+        //         // Remove validators when includeViaggioExtra is false
+        //         this.checkInForm.get('viaggioExtraNameClient').clearValidators();
+        //         this.checkInForm.get('viaggioExtraAddressClient').clearValidators();
+        //         this.checkInForm.get('viaggioExtraValue').clearValidators();
+        //         this.checkInForm.patchValue({
+        //             viaggioExtraNameClient: null,
+        //             viaggioExtraAddressClient: null,
+        //             viaggioExtraValue: null
+        //         });
+        //     }
+        //     // Update form controls validity
+        //     this.checkInForm.get('viaggioExtraNameClient').updateValueAndValidity();
+        //     this.checkInForm.get('viaggioExtraAddressClient').updateValueAndValidity();
+        //     this.checkInForm.get('viaggioExtraValue').updateValueAndValidity();
+        // });
 
         const layourServiceSubscription =
             this.layoutService.configUpdate$.subscribe(() => {
@@ -222,78 +222,59 @@ export class AttendanceHomeComponent implements OnInit, OnDestroy {
                 this.currentUser = data;
                 this.currentCompany = data?.companies[0];
                 this.placesItems = data?.companies[0]?.places;
-                this.vehiclesItems = data?.companies[0]?.vehicles;
+                // this.vehiclesItems = data?.companies[0]?.vehicles;
                 this.loading = false;
-                const vehicleServiceSubscription = this.vehicleService
-                    .getAllVehicles(0)
-                    .subscribe((vehicles) => {
-                        this.vehiclesItems = vehicles;
-                        const attendanceServiceSubscription =
-                            this.attendanceService
-                                .getAttendanceByUser(storeUser.id)
-                                .subscribe((data) => {
-                                    this.attendanceData = data;
-                                    this.attendanceCheckIn =
-                                        this.attendanceData?.attendance;
+                const attendanceServiceSubscription =
+                    this.attendanceService
+                        .getAttendanceByUser(storeUser.id)
+                        .subscribe((data) => {
+                            this.attendanceData = data;
+                            this.attendanceCheckIn =
+                                this.attendanceData?.attendance;
 
-                                    let savedSelectionPlace = parseInt(
-                                        localStorage.getItem('selectedPlace'),
-                                        10,
-                                    );
-                                    if (savedSelectionPlace) {
-                                        this.checkInForm.patchValue({
-                                            placeId: savedSelectionPlace,
-                                        });
-                                        this.calculateDistance(
-                                            savedSelectionPlace,
-                                        );
-                                    }
-                                    let savedSelectionVehicle = parseInt(
-                                        localStorage.getItem('selectedVehicle'),
-                                        10,
-                                    );
-
-                                    if (savedSelectionVehicle) {
-                                        this.checkInForm.patchValue({
-                                            vehicleId: savedSelectionVehicle,
-                                        });
-                                    }
-                                    if (this.attendanceCheckIn?.placeId) {
-                                        this.checkInForm.patchValue({
-                                            placeId:
-                                                this.attendanceCheckIn?.placeId,
-                                        });
-                                    }
-                                    if (this.attendanceCheckIn?.vehicleId) {
-                                        this.checkInForm.patchValue({
-                                            vehicleId:
-                                                this.attendanceCheckIn
-                                                    ?.vehicleId,
-                                        });
-                                    }
-                                    if (this.attendanceCheckIn) {
-                                        this.checkInForm.controls[
-                                            'placeId'
-                                        ].disable({
-                                            onlySelf: true,
-                                        });
-                                        this.checkInForm.controls[
-                                            'vehicleId'
-                                        ].disable({
-                                            onlySelf: true,
-                                        });
-                                    }
-
-                                    this.loading = false;
-                                });
-                        if (attendanceServiceSubscription && this.subscription)
-                            this.subscription.add(
-                                attendanceServiceSubscription,
+                            let savedSelectionPlace = parseInt(
+                                localStorage.getItem('selectedPlace'),
+                                10,
                             );
-                        this.loading = false;
-                    });
-                if (vehicleServiceSubscription && this.subscription)
-                    this.subscription.add(vehicleServiceSubscription);
+                            if (savedSelectionPlace) {
+                                this.checkInForm.patchValue({
+                                    placeId: savedSelectionPlace,
+                                });
+                                this.calculateDistance(
+                                    savedSelectionPlace,
+                                );
+                            }
+
+                            if (this.attendanceCheckIn?.placeId) {
+                                this.checkInForm.patchValue({
+                                    placeId:
+                                        this.attendanceCheckIn?.placeId,
+                                });
+                            }
+                            if (this.attendanceCheckIn) {
+                                this.checkInForm.controls[
+                                    'placeId'
+                                ].disable({
+                                    onlySelf: true,
+                                });
+                            }
+
+                            this.loading = false;
+                        });
+                if (attendanceServiceSubscription && this.subscription)
+                    this.subscription.add(
+                        attendanceServiceSubscription,
+                    );
+                this.loading = false;
+
+                // const vehicleServiceSubscription = this.vehicleService
+                //     .getAllVehicles(0)
+                //     .subscribe((vehicles) => {
+                //         this.vehiclesItems = vehicles;
+
+                //     });
+                // if (vehicleServiceSubscription && this.subscription)
+                //     this.subscription.add(vehicleServiceSubscription);
             });
 
         if (userServiceSubscription && this.subscription)
@@ -308,9 +289,9 @@ export class AttendanceHomeComponent implements OnInit, OnDestroy {
         this.calculateDistance(event.value);
     }
 
-    onChangeVehicle(event) {
-        localStorage.setItem('selectedVehicle', this.selectedVehicle);
-    }
+    // onChangeVehicle(event) {
+    //     localStorage.setItem('selectedVehicle', this.selectedVehicle);
+    // }
 
     calculateDistance(placeId) {
 
@@ -354,24 +335,24 @@ export class AttendanceHomeComponent implements OnInit, OnDestroy {
     }
 
     saveCheckIn() {
-        if (!this.checkInForm.value.vehicleId) {
-            this.messageService.add({
-                severity: 'error',
-                summary: 'Errore',
-                detail: 'Scegliere veicolo',
-                life: 3000,
-            });
-        }
+        // if (!this.checkInForm.value.vehicleId) {
+        //     this.messageService.add({
+        //         severity: 'error',
+        //         summary: 'Errore',
+        //         detail: 'Scegliere veicolo',
+        //         life: 3000,
+        //     });
+        // }
+        // && this.checkInForm.value.vehicleId
         if (
-            this.checkInForm.value.placeId &&
-            this.checkInForm.value.vehicleId
+            this.checkInForm.value.placeId
         ) {
             this.attendanceService
                 .checkInAttendance(
                     this.currentUser?.id,
                     this.currentCompany?.id,
                     this.checkInForm.value.placeId,
-                    this.checkInForm.value.vehicleId,
+                    null,
                 )
                 .subscribe((res) => {
                     this.playSoundButton();
@@ -382,49 +363,25 @@ export class AttendanceHomeComponent implements OnInit, OnDestroy {
     saveCheckOut() {
         const formData = new FormData();
 
-        for (let file of this.uploadedFiles) {
-            formData.append('files', file);
-        }
-        if (this.uploadedFiles.length > 0) {
-            const licensePlate = this.vehiclesItems.find(
-                (vehicle) => vehicle.id === this.selectedVehicle,
-            ).licensePlate;
-
-            const checkInId = this.attendanceCheckIn?.id;
-            formData.append('checkInId', checkInId);
-            formData.append('licensePlate', licensePlate);
-
-            this.uploadService.uploadAttendanceImages(formData).subscribe(
-                (response) => { },
-                (error) => { },
-            );
-
-            this.attendanceService
-                .checkOutAttendance(
-                    this.attendanceCheckIn?.id,
-                    this.currentUser?.id,
-                    this.checkInForm.value.includeFacchinaggio,
-                    this.checkInForm.value.facchinaggioNameClient,
-                    this.checkInForm.value.facchinaggioAddressClient,
-                    this.checkInForm.value.facchinaggioValue,
-                    this.checkInForm.value.includeViaggioExtra,
-                    this.checkInForm.value.viaggioExtraNameClient,
-                    this.checkInForm.value.viaggioExtraAddressClient,
-                    this.checkInForm.value.viaggioExtraValue,
-
-                )
-                .subscribe((res) => {
-                    this.playSoundButton();
-                    this.router.navigate([ROUTES.ROUTE_LANDING_HOME]);
-                });
-        } else {
-            this.messageService.add({
-                severity: 'error',
-                summary: 'Errore',
-                detail: 'Aggiungi foto del mezzo',
-                life: 3000,
+        const checkInId = this.attendanceCheckIn?.id;
+        formData.append('checkInId', checkInId);
+        this.attendanceService
+            .checkOutAttendance(
+                this.attendanceCheckIn?.id,
+                this.currentUser?.id,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+            )
+            .subscribe((res) => {
+                this.playSoundButton();
+                this.router.navigate([ROUTES.ROUTE_LANDING_HOME]);
             });
-        }
     }
 
     //Upload Image

@@ -32,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="field col-12 md:col-6">
+                    <!-- <div class="field col-12 md:col-6">
                         <label htmlFor="user1">Seleziona mezzo</label>
                         <p-dropdown [options]="vehiclesItems" [(ngModel)]="selectedVehicle" optionLabel="licensePlate"
                             optionValue="id" [filter]="true" filterBy="licensePlate" [showClear]="true"
@@ -51,8 +51,8 @@
                                 </div>
                             </ng-template>
                         </p-dropdown>
-                    </div>
-                    <div class="field col-12 md:col-12" *ngIf="
+                    </div> -->
+                    <!-- <div class="field col-12 md:col-12" *ngIf="
                             attendanceData &&
                             attendanceData?.foundCheckIn &&
                             currentAddress
@@ -72,25 +72,23 @@
                                     </div>
                                 </div>
                             </ng-template>
-                            <!-- <ng-template pTemplate="content">
+                             <ng-template pTemplate="content">
                                 <ul *ngIf="uploadedFiles?.length">
                                     <li *ngFor="let file of uploadedFiles">
                                        {{ file.name }} - {{ file.size }} bytes 
                                     </li>
                                 </ul>
-                            </ng-template> -->
+                            </ng-template>
                         </p-fileUpload>
-                    </div>
-                    <div class="field col-12 md:col-6" *ngIf="
+                    </div> -->
+                    <!-- <div class="field col-12 md:col-6" *ngIf="
                             attendanceData &&
                             attendanceData?.foundCheckIn &&
                             currentAddress
                         ">
                         <p-accordion>
                             <p-accordionTab header="Opzioni avanzate">
-                                <!--Facchinaggio-->
-                                <!-- chebox fachinaggio-->
-                                <!-- fai vedere -->
+                              
                                 <div class="field col-12 md:col-6 m-0">
                                     <p-checkbox [binary]="true" inputId="includeFacchinaggio" [(ngModel)]="includeFacchinaggio"
                                         formControlName="includeFacchinaggio" label="Include Facchinaggio" />
@@ -100,7 +98,7 @@
                                     <input pInputText id="facchinaggioNameClient" placeholder="Nome" type="text"
                                         formControlName="facchinaggioNameClient" ngModel />
                                     <div *ngIf="checkInForm.get('facchinaggioNameClient').errors && checkInForm.get('facchinaggioNameClient').errors.required"
-                                        class="error-message">Il nome del cliente è obbligatorio</div> <!-- Error message -->
+                                        class="error-message">Il nome del cliente è obbligatorio</div>
                                 </div>
                                 <div class="field col-12 md:col-6 m-0" *ngIf="includeFacchinaggio">
                                     <label htmlFor="facchinaggioAddressClient">Indirizzo cliente</label>
@@ -118,7 +116,7 @@
                                         decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR" [min]="10"
                                         [max]="100" />
                                     <div *ngIf="checkInForm.get('facchinaggioValue').errors && checkInForm.get('facchinaggioValue').errors.required"
-                                        class="error-message">Il compenso è obbligatorio</div> <!-- Error message -->
+                                        class="error-message">Il compenso è obbligatorio</div> 
                                 </div>
 
                                 <hr>
@@ -159,7 +157,7 @@
                                 </div>
                             </p-accordionTab>
                         </p-accordion>
-                    </div>
+                    </div> -->
 
                 </div>
             </form>

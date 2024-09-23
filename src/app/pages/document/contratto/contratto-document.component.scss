@@ -1,0 +1,54 @@
+:host {
+    display: block;
+    margin: 1rem;
+
+    .card {
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h5 {
+        margin-bottom: 1rem;
+    }
+
+    .p-formgrid {
+        margin-top: 1rem;
+
+        .field {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input,
+        p-dropdown {
+            width: 100%;
+        }
+    }
+
+    .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        button {
+            background-color: #007ad9;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #005bb5;
+            }
+        }
+    }
+}
