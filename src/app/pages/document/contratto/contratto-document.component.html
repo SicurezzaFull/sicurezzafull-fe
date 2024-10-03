@@ -5,9 +5,13 @@
                 <h5>Filtri per selezionare il tipo di documento</h5>
                 <div class="p-fluid p-formgrid grid">
                     <div class="field col-12 md:col-6">
+                        <label htmlFor="client">Cliente</label> <br>
+                        <p-dropdown id="client" optionLabel="name" [options]="clients"
+                            (ngModel)="selectedClient"></p-dropdown>
+                    </div>
+                    <div class="field col-12 md:col-6">
                         <label htmlFor="documentType">Tipo Documento</label> <br>
-                        <p-dropdown id="documentType" [options]="documentTypes"
-                            formControlName="documentType"></p-dropdown>
+                        <p-dropdown id="documentType" [options]="documentTypes" (ngModel)="selectedDocumentType"></p-dropdown>
                     </div>
                 </div>
             </form>

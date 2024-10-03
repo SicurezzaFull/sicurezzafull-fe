@@ -126,7 +126,12 @@
             "company": {
                 "menuTitle": "Empresas",
                 "table": "Lista empresas",
-                "create": "Agresa empresa"
+                "create": "Agrega empresa"
+            },
+            "client": {
+                "menuTitle": "Clientes",
+                "table": "Lista clientes",
+                "create": "Agrega clientes"
             },
             "vehicle": {
                 "menuTitle": "Veiculos",

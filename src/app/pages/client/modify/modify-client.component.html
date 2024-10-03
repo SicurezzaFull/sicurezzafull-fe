@@ -1,0 +1,74 @@
+<div class="grid">
+    <div class="col-12 md:col-12">
+        <div class="card">
+            <form [formGroup]="modifyForm" #form="ngForm" (ngSubmit)="onSubmit()">
+                <h5>Modifica cliente</h5> <!-- Cambiato da "Modifica azienda" a "Modifica cliente" -->
+                <div class="p-fluid p-formgrid grid">
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="name1">Nome cliente</label> <!-- Cambiato -->
+                        <input pInputText id="name1" placeholder="Nome cliente" type="text" formControlName="name"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="phone1">Telefono</label> <!-- Aggiornato -->
+                        <input pInputText id="phone1" type="text" placeholder="021234523" formControlName="phone"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="email1">Email</label> <!-- Aggiornato -->
+                        <input pInputText id="email1" type="text" placeholder="cliente@email.it" formControlName="email"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="address1">Indirizzo</label> <!-- Aggiunto -->
+                        <input pInputText id="address1" type="text" placeholder="Via Roma 1" formControlName="address"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="city1">Città</label> <!-- Aggiunto -->
+                        <input pInputText id="city1" type="text" placeholder="Milano" formControlName="city" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="postalCode1">CAP</label> <!-- Aggiunto -->
+                        <input pInputText id="postalCode1" type="text" placeholder="20100" formControlName="postalCode"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="country1">Paese</label> <!-- Aggiunto -->
+                        <input pInputText id="country1" type="text" placeholder="Italia" formControlName="country"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="vat1">P.IVA</label>
+                        <input pInputText id="vat1" type="text" placeholder="81232412323" formControlName="vat"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="pec1">PEC</label>
+                        <input pInputText id="pec1" type="text" placeholder="cliente@pec.it" formControlName="pec"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="signature1">Firma</label> <!-- Aggiunto -->
+                        <input pInputText id="signature1" type="text" placeholder="Firma" formControlName="signature"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="logo1">Logo</label> <!-- Aggiunto -->
+                        <input pInputText id="logo1" type="text" placeholder="Link logo" formControlName="logo"
+                            ngModel />
+                    </div>
+                </div>
+                <div class="flex justify-content-center align-items-center gap-2">
+                    <button pButton pRipple type="submit" class="p-button-outlined p-button-secondary" label="Annulla"
+                        (click)="goToTableClient()"
+                        icon="pi pi-times"
+                        ></button>
+
+                    <button pButton pRipple type="submit" class="p-button-success" label="Salva" icon="pi pi-save"
+                        [disabled]="!modifyForm.valid"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

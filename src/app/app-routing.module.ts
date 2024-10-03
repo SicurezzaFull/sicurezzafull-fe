@@ -62,6 +62,17 @@ import { AuthGuard } from './services/auth.guard';
                             },
                         },
                         {
+                            path: 'client',
+                            loadChildren: () =>
+                                import('./pages/client/client.module').then(
+                                    (m) => m.ClientModule,
+                                ),
+                            canActivate: [AuthGuard],
+                            data: {
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR'],
+                            },
+                        },
+                        {
                             path: 'user',
                             loadChildren: () =>
                                 import('./pages/user/user.module').then(

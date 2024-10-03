@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Packer, Document, Paragraph, TextRun, AlignmentType, Table, TableRow, TableCell, Media, ImageRun, PageNumber, Footer, Header } from 'docx';
 import { DocxService } from 'src/app/services/docx.service';
 import { saveAs } from 'file-saver';
+import { ClientService } from 'src/app/services/client.service';
 
 @Component({
   selector: 'app-contratto-document',
@@ -12,12 +13,15 @@ import { saveAs } from 'file-saver';
 export class ContrattoDocumentComponent implements OnInit {
   detailForm: FormGroup;
   documentTypes: { label: string; value: string }[] = [
-    { label: 'CLOE-Contratto di Assunzione-DETERM', value: 'cloe-assunzione-determ' },
+    { label: 'Contratto di Assunzione-DETERM', value: 'assunzione-determ' },
     { label: 'Lettera di Assunzione', value: 'lettera' },
     // Add more document types as needed
   ];
+  clients: any;
+  selectedClient: any;
+  selectedDocumentType: any;
 
-  constructor(private fb: FormBuilder, private docxService: DocxService) {
+  constructor(private fb: FormBuilder, private docxService: DocxService, private clientService: ClientService) {
     this.detailForm = this.fb.group({
       name: [''],
       surname: [''],
@@ -28,7 +32,7 @@ export class ContrattoDocumentComponent implements OnInit {
       level: [''],
       duties: [''],
       workingHours: [''],
-      documentType: [''] // Added for the document type
+  
     });
   }
 
@@ -36,6 +40,9 @@ export class ContrattoDocumentComponent implements OnInit {
     const today = new Date().toISOString().split('T')[0]; // Ottieni la data odierna in formato 'YYYY-MM-DD'
     this.detailForm.patchValue({
       dataCorrente: today
+    });
+    this.clientService.getAllClients().subscribe((clients) => {
+      this.clients = clients;
     });
   }
 

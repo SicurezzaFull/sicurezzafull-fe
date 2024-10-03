@@ -1,0 +1,82 @@
+<div class="grid">
+    <div class="col-12 md:col-12">
+        <div class="card">
+            <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+                <h5>Crea cliente</h5>
+                <div class="p-fluid p-formgrid grid">
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="name1">Nome</label>
+                        <input pInputText id="name1" type="text" placeholder="Azienda SRL" formControlName="name" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="email1">Email</label>
+                        <input pInputText id="email1" type="text" placeholder="cliente@email.it" formControlName="email"
+                            ngModel />
+                        <div *ngIf="createForm.controls['email'].invalid && (createForm.controls['email'].dirty || createForm.controls['email'].touched)"
+                            class="alert">
+                            <small class="p-error">Email non valida</small>
+                        </div>
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="phone1">Telefono</label>
+                        <input pInputText id="phone1" type="text" placeholder="021234523" formControlName="phone"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="address1">Indirizzo</label>
+                        <input pInputText id="address1" type="text" placeholder="Via Roma 1" formControlName="address"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="city1">Città</label>
+                        <input pInputText id="city1" type="text" placeholder="Milano" formControlName="city" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="postalCode1">Codice Postale</label>
+                        <input pInputText id="postalCode1" type="text" placeholder="20100" formControlName="postalCode"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="country1">Nazione</label>
+                        <input pInputText id="country1" type="text" placeholder="Italia" formControlName="country"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="vat1">P.IVA</label>
+                        <input pInputText id="vat1" type="text" placeholder="81232412323" formControlName="vat"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="pec1">PEC</label>
+                        <input pInputText id="pec1" type="text" placeholder="cliente@pec.it" formControlName="pec"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="logo1">Logo</label>
+                        <input type="file" id="logo1" (change)="onFileChange($event, 'logo')" />
+                        <div *ngIf="logoPreview">
+                            <img [src]="logoPreview" alt="Logo Preview" style="max-width: 100px; max-height: 100px;" />
+                        </div>
+                    </div>
+                    
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="signature1">Firma</label>
+                        <input type="file" id="signature1" (change)="onFileChange($event, 'signature')" />
+                        <div *ngIf="signaturePreview">
+                            <img [src]="signaturePreview" alt="Signature Preview" style="max-width: 100px; max-height: 100px;" />
+                        </div>
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="status1">Attivo</label>
+                        <p-inputSwitch formControlName="status"></p-inputSwitch>
+                    </div>
+                </div>
+
+                <div class="flex justify-content-center align-items-center gap-2">
+                    <button pButton pRipple type="submit" class="p-button-success" label="Crea" icon="pi pi-plus"
+                        [disabled]="!createForm.valid"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

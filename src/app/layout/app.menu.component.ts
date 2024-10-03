@@ -140,6 +140,24 @@ export class AppMenuComponent implements OnInit {
                     },
                 ],
             });
+            this.model.push({
+                label: 'Clienti',
+                translationCode: 'menu.routes.client.menuTitle',
+                items: [
+                    {
+                        label: 'Lista clienti',
+                        translationCode: 'menu.routes.client.table',
+                        icon: 'pi pi-list',
+                        routerLink: [ROUTES.ROUTE_TABLE_CLIENT],
+                    },
+                    {
+                        label: 'Aggiungi azienda',
+                        translationCode: 'menu.routes.client.create',
+                        icon: 'pi pi-plus-circle',
+                        routerLink: [ROUTES.ROUTE_CREATE_CLIENT],
+                    },
+                ],
+            });
             // this.model.push({
             //     label: 'Vehicles',
             //     translationCode: 'menu.routes.vehicle.menuTitle',

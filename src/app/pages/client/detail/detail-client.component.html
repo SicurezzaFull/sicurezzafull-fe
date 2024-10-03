@@ -1,0 +1,58 @@
+<div class="grid">
+    <div class="col-12 md:col-12">
+        <div class="card">
+            <form [formGroup]="detailForm" #form="ngForm">
+                <h5>Dettaglio cliente</h5> <!-- Modificato -->
+                <div class="p-fluid p-formgrid grid">
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="name1">Nome cliente</label> <!-- Modificato -->
+                        <input id="disabled-input" type="text" pInputText readonly="true" [attr.disabled]="true"
+                            formControlName="name" />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="vat1">P.IVA</label>
+                        <input pInputText id="vat1" type="text" formControlName="vat" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="address1">Indirizzo</label> <!-- Aggiunto -->
+                        <input pInputText id="address1" type="text" formControlName="address" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="city1">Città</label> <!-- Aggiunto -->
+                        <input pInputText id="city1" type="text" formControlName="city" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="postalCode1">CAP</label> <!-- Aggiunto -->
+                        <input pInputText id="postalCode1" type="text" formControlName="postalCode" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="country1">Nazione</label> <!-- Aggiunto -->
+                        <input pInputText id="country1" type="text" formControlName="country" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="phone1">Telefono</label>
+                        <input pInputText id="phone1" type="text" formControlName="phone" ngModel />
+                    </div>
+
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="email1">Email</label>
+                        <input pInputText id="email1" type="text" formControlName="email" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="pec1">PEC</label>
+                        <input pInputText id="pec1" type="text" formControlName="pec" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="signature1">Firma</label> <!-- Aggiunto -->
+                        <input pInputText id="signature1" type="text" formControlName="signature" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="logo1">Logo</label> <!-- Aggiunto -->
+                        <input pInputText id="logo1" type="text" formControlName="logo" ngModel />
+                    </div>
+        
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
