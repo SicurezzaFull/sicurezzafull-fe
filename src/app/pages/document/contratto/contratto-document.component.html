@@ -1,21 +1,26 @@
 <div class="grid">
     <div class="col-12 md:col-12">
         <div class="card">
-            <form [formGroup]="detailForm">
-                <h5>Filtri per selezionare il tipo di documento</h5>
-                <div class="p-fluid p-formgrid grid">
-                    <div class="field col-12 md:col-6">
-                        <label htmlFor="client">Cliente</label> <br>
-                        <p-dropdown id="client" optionLabel="name" [options]="clients"
-                            (ngModel)="selectedClient"></p-dropdown>
-                    </div>
-                    <div class="field col-12 md:col-6">
-                        <label htmlFor="documentType">Tipo Documento</label> <br>
-                        <p-dropdown id="documentType" [options]="documentTypes" (ngModel)="selectedDocumentType"></p-dropdown>
-                    </div>
+            <h5>Filtri per selezionare il tipo di documento</h5>
+            <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 md:col-6">
+                    <label htmlFor="client">Cliente</label> <br>
+                    <p-dropdown id="client" optionLabel="name" [options]="clients"
+                        [(ngModel)]="selectedClient"></p-dropdown>
                 </div>
-            </form>
+                <div class="field col-12 md:col-6">
+                    <label htmlFor="documentType">Tipo Documento</label> <br>
+                    <p-dropdown id="documentType" [options]="documentTypes"
+                        [(ngModel)]="selectedDocumentType"></p-dropdown>
+                </div>
+            </div>
         </div>
+    </div>
+    <div *ngIf="selectedClient.logoPath">
+        <img [src]="selectedClient.logoPath" alt="Client Logo" style="max-width: 100px;">
+    </div>
+    <div *ngIf="selectedClient.signaturePath">
+        <img [src]="selectedClient.signaturePath" alt="Client Signature" style="max-width: 100px;">
     </div>
 
     <div class="col-12 md:col-12">
@@ -33,7 +38,8 @@
                     </div>
                     <div class="field col-12 md:col-4">
                         <label htmlFor="datacorrente1">Data corrente</label>
-                        <input pInputText id="datacorrente1" type="date" formControlName="dataCorrente" placeholder="YYYY-MM-DD" />
+                        <input pInputText id="datacorrente1" type="date" formControlName="dataCorrente"
+                            placeholder="YYYY-MM-DD" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <label htmlFor="startDate1">Data Inizio</label>
@@ -47,11 +53,13 @@
                     </div>
                     <div class="field col-12 md:col-4">
                         <label htmlFor="sector1">Settore</label>
-                        <input pInputText id="sector1" type="text" formControlName="sector" placeholder="EDILIZIA INDUSTRIA" />
+                        <input pInputText id="sector1" type="text" formControlName="sector"
+                            placeholder="EDILIZIA INDUSTRIA" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <label htmlFor="level1">Livello</label>
-                        <input pInputText id="level1" type="text" formControlName="level" placeholder="1 livello del C.C.N.L. Edilizia" />
+                        <input pInputText id="level1" type="text" formControlName="level"
+                            placeholder="1 livello del C.C.N.L. Edilizia" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <label htmlFor="duties1">Mansioni</label>

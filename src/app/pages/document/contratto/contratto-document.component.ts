@@ -4,6 +4,9 @@ import { Packer, Document, Paragraph, TextRun, AlignmentType, Table, TableRow, T
 import { DocxService } from 'src/app/services/docx.service';
 import { saveAs } from 'file-saver';
 import { ClientService } from 'src/app/services/client.service';
+import { environment } from '../../../../environments/environment';
+
+const API_URL = environment.endpoint;
 
 @Component({
   selector: 'app-contratto-document',
@@ -32,7 +35,7 @@ export class ContrattoDocumentComponent implements OnInit {
       level: [''],
       duties: [''],
       workingHours: [''],
-  
+
     });
   }
 
@@ -52,14 +55,31 @@ export class ContrattoDocumentComponent implements OnInit {
   }
 
   async generateUserDocx(): Promise<void> {
+
+    console.log("selectedClient", this.selectedClient);
+    console.log("selectedDocumentType", this.selectedDocumentType);
+
     const formValues = this.detailForm.value;
 
     const formattedDataCorrente = this.formatDate(formValues.dataCorrente);
     const formattedStartDate = this.formatDate(formValues.startDate);
     const formattedContractEndDate = this.formatDate(formValues.contractEndDate);
 
-    const logoCloe64 = await getBase64Image('assets/documents/cloe/logo-cloe.png');
-    const firmaCloe64 = await getBase64Image('assets/documents/cloe/firma-cloe.png');
+
+    const logoCloe64 = getBase64Image(this.selectedClient.logo, 'image/png');
+    const firmaCloe64 = getBase64Image(this.selectedClient.signature, 'image/png');
+
+    console.log('Logo Base64:', logoCloe64);
+    console.log('Signature Base64:', firmaCloe64);
+
+    const logoImg = document.getElementById('logo') as HTMLImageElement;
+    const signatureImg = document.getElementById('signature') as HTMLImageElement;
+
+    // Set the base64 image as the src for the img tags
+    if (logoImg && signatureImg) {
+      logoImg.src = logoCloe64;
+      signatureImg.src = firmaCloe64;
+    }
 
     const doc = new Document({
       sections: [
@@ -113,7 +133,7 @@ export class ContrattoDocumentComponent implements OnInit {
             }),
           },
           children: [
-            
+
             new Paragraph({
               alignment: AlignmentType.CENTER,
               children: [
@@ -266,25 +286,8 @@ export class ContrattoDocumentComponent implements OnInit {
 
 
 }
-// Funzione per convertire un file in base64
-function toBase64(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result as string);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
 
-// Funzione per ottenere base64 da URL dell'immagine
-async function getBase64Image(url: string): Promise<string> {
-  const response = await fetch(url);
-  const blob = await response.blob();
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result as string);
-    reader.onerror = reject;
-    reader.readAsDataURL(blob);
-  });
-}
 
+function getBase64Image(bufferArray, mimeType = 'image/png') {
+  return `data:${mimeType};base64,${bufferArray}`;
+}

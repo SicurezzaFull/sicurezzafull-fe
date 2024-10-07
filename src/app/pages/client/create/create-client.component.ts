@@ -62,29 +62,42 @@ export class CreateClientComponent implements OnInit { // Cambiato qui
         const file = event.target.files[0];
         if (type === 'signature') {
             this.signatureFile = file;
+            const reader = new FileReader();
+            reader.onload = (e) => this.signaturePreview = reader.result;
+            reader.readAsDataURL(file);
         } else if (type === 'logo') {
             this.logoFile = file;
+            const reader = new FileReader();
+            reader.onload = (e) => this.logoPreview = reader.result;
+            reader.readAsDataURL(file);
         }
     }
 
-
-
     onSubmit(): void {
-        this.clientService.createClient(
-            this.createForm.value.name,
-            this.createForm.value.email,
-            this.createForm.value.phone,
-            this.createForm.value.address,
-            this.createForm.value.city,
-            this.createForm.value.postalCode,
-            this.createForm.value.country,
-            this.createForm.value.vat,
-            this.createForm.value.pec,
-            this.signatureFile,
-            this.logoFile,
-            this.createForm.value.status
-        ).subscribe(() => {
-            this.router.navigate([ROUTES.ROUTE_TABLE_CLIENT]); // Cambiato qui
-        });
+        if (this.createForm.valid) {
+            this.clientService.createClient(
+                this.createForm.value.name,
+                this.createForm.value.email,
+                this.createForm.value.phone,
+                this.createForm.value.address,
+                this.createForm.value.city,
+                this.createForm.value.postalCode,
+                this.createForm.value.country,
+                this.createForm.value.vat,
+                this.createForm.value.pec,
+                this.signatureFile,
+                this.logoFile,
+                this.createForm.value.status
+            ).subscribe(
+                () => {
+                    this.router.navigate([ROUTES.ROUTE_TABLE_CLIENT]);
+                },
+                error => {
+                    console.error('Error creating client:', error);
+                    // Optionally show a user-friendly message here
+                }
+            );
+        }
     }
+
 }

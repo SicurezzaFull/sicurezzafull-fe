@@ -53,7 +53,7 @@
                     </div>
                     <div class="field col-12 md:col-4">
                         <label htmlFor="logo1">Logo</label>
-                        <input type="file" id="logo1" (change)="onFileChange($event, 'logo')" />
+                        <input type="file" id="logo1" (change)="onFileChange($event, 'logo')" accept="image/png" />
                         <div *ngIf="logoPreview">
                             <img [src]="logoPreview" alt="Logo Preview" style="max-width: 100px; max-height: 100px;" />
                         </div>
@@ -61,7 +61,7 @@
                     
                     <div class="field col-12 md:col-4">
                         <label htmlFor="signature1">Firma</label>
-                        <input type="file" id="signature1" (change)="onFileChange($event, 'signature')" />
+                        <input type="file" id="signature1" (change)="onFileChange($event, 'signature')" accept="image/png"  />
                         <div *ngIf="signaturePreview">
                             <img [src]="signaturePreview" alt="Signature Preview" style="max-width: 100px; max-height: 100px;" />
                         </div>
