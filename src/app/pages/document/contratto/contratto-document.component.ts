@@ -5,6 +5,7 @@ import { DocxService } from 'src/app/services/docx.service';
 import { saveAs } from 'file-saver';
 import { ClientService } from 'src/app/services/client.service';
 import { environment } from '../../../../environments/environment';
+import { SpacesService } from 'src/app/services/spaces.service';
 
 const API_URL = environment.endpoint;
 
@@ -23,8 +24,12 @@ export class ContrattoDocumentComponent implements OnInit {
   clients: any;
   selectedClient: any;
   selectedDocumentType: any;
+  images: AWS.S3.Object[];
+  logoUrl: string | null = null;
+  signatureUrl: string | null = null;
+  imageBase64: string | null = null;
 
-  constructor(private fb: FormBuilder, private docxService: DocxService, private clientService: ClientService) {
+  constructor(private fb: FormBuilder, private docxService: DocxService, private spacesService: SpacesService, private clientService: ClientService) {
     this.detailForm = this.fb.group({
       name: [''],
       surname: [''],
@@ -46,13 +51,45 @@ export class ContrattoDocumentComponent implements OnInit {
     });
     this.clientService.getAllClients().subscribe((clients) => {
       this.clients = clients;
+      this.selectedClient= clients[0]
     });
+    if (this.selectedClient) {
+      
+    }
   }
-
   formatDate(dateString: string): string {
     const [year, month, day] = dateString.split('-');
     return `${day}/${month}/${year}`;
   }
+
+
+
+  onClientChange(event: any) {
+    this.selectedClient = event.value;
+    this.loadClientDetails(this.selectedClient);
+  }
+
+  loadClientDetails(client: any) {
+    const imageKey = this.getClientImage(client.clientImages, 'logo') 
+    this.fetchImage(imageKey);
+
+  }
+
+  
+
+  getClientImage(images: any[], type: string): string | null {
+    const image = images.find(img => img.type === type);
+    return image ? image.keyFile : null;
+  }
+
+  async fetchImage(key: string): Promise<void> {
+    try {
+      this.imageBase64 = await this.spacesService.fetchImageBase64(key);
+    } catch (error) {
+      console.error('Error fetching image:', error);
+    }
+  }
+
 
   async generateUserDocx(): Promise<void> {
 
@@ -66,20 +103,13 @@ export class ContrattoDocumentComponent implements OnInit {
     const formattedContractEndDate = this.formatDate(formValues.contractEndDate);
 
 
-    const logoCloe64 = getBase64Image(this.selectedClient.logo, 'image/png');
-    const firmaCloe64 = getBase64Image(this.selectedClient.signature, 'image/png');
+    // logoUrl
+    // signatureUrl
 
-    console.log('Logo Base64:', logoCloe64);
-    console.log('Signature Base64:', firmaCloe64);
 
-    const logoImg = document.getElementById('logo') as HTMLImageElement;
-    const signatureImg = document.getElementById('signature') as HTMLImageElement;
 
-    // Set the base64 image as the src for the img tags
-    if (logoImg && signatureImg) {
-      logoImg.src = logoCloe64;
-      signatureImg.src = firmaCloe64;
-    }
+    const logoCloe64 = await this.getBase64ImageFromUrl(this.logoUrl!);
+    const firmaCloe64 = await this.getBase64ImageFromUrl(this.signatureUrl!);
 
     const doc = new Document({
       sections: [
@@ -283,9 +313,19 @@ export class ContrattoDocumentComponent implements OnInit {
     });
   }
 
-
+  async getBase64ImageFromUrl(imageUrl: string): Promise<string> {
+    const response = await fetch(imageUrl);
+    const blob = await response.blob();
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  }
 
 }
+
 
 
 function getBase64Image(bufferArray, mimeType = 'image/png') {

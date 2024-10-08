@@ -6,7 +6,7 @@
                 <div class="field col-12 md:col-6">
                     <label htmlFor="client">Cliente</label> <br>
                     <p-dropdown id="client" optionLabel="name" [options]="clients"
-                        [(ngModel)]="selectedClient"></p-dropdown>
+                        [(ngModel)]="selectedClient" (onChange)="onClientChange($event)"></p-dropdown>
                 </div>
                 <div class="field col-12 md:col-6">
                     <label htmlFor="documentType">Tipo Documento</label> <br>
@@ -16,12 +16,11 @@
             </div>
         </div>
     </div>
-    <div *ngIf="selectedClient.logoPath">
-        <img [src]="selectedClient.logoPath" alt="Client Logo" style="max-width: 100px;">
+    <div *ngIf="imageBase64">
+        <img [src]="imageBase64" alt="Fetched Image" />
     </div>
-    <div *ngIf="selectedClient.signaturePath">
-        <img [src]="selectedClient.signaturePath" alt="Client Signature" style="max-width: 100px;">
-    </div>
+
+
 
     <div class="col-12 md:col-12">
         <div class="card">

@@ -3,8 +3,8 @@ export const environment = {
     endpoint: 'https://prod-sicurezzafull-be.onrender.com/',
     googleMapsApiKey: 'AIzaSyA1JYdBfuWQxh1CIiQLpiai0A-EPxYtogIs',
     spacesEndpoint: 'fra1.digitaloceanspaces.com',
-    accessKeyId: 'DO008T6X3J72C7PBM4VN',
-    secretAccessKey: 'zq/q2wc/GBYubqxirEMiqgp5CBCF/5n0wVMB4NKCCF4',
+    accessKeyId: 'DO00F2T7TPAG6EEP4PMX',
+    secretAccessKey: '/Rq4PT7V0ad7RSYRFTOxxSOymwfacOyHrHJY2mj+s9w',
     bucketName: 'sicurezzafull',
     adminEmails: ['sicurezzafullsviluppo@gmail.com'],
     operatorPhoneNumber: '+393891733185', //Operator Help desk

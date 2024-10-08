@@ -17,7 +17,29 @@ export class SpacesService {
         secretAccessKey: environment.secretAccessKey,
     });
 
-    listObjects(): Promise<AWS.S3.ListObjectsOutput> {
-        return this.s3.listObjects({ Bucket: this.bucketName }).promise();
+    getSignedUrl(key: string): string {
+        return this.s3.getSignedUrl('getObject', {
+            Bucket: this.bucketName,
+            Key: key,
+            Expires: 63600,
+        });
+    }
+
+    async fetchImageBase64(key: string): Promise<string> {
+        const url = this.getSignedUrl(key);
+        const response = await fetch(url);
+        const blob = await response.blob();
+        return this.convertBlobToBase64(blob);
+    }
+
+    convertBlobToBase64(blob: Blob): Promise<string> {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                resolve(reader.result as string);
+            };
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+        });
     }
 }
