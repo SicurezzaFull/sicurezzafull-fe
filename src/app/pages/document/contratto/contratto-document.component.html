@@ -5,8 +5,8 @@
             <div class="p-fluid p-formgrid grid">
                 <div class="field col-12 md:col-6">
                     <label htmlFor="client">Cliente</label> <br>
-                    <p-dropdown id="client" optionLabel="name" [options]="clients"
-                        [(ngModel)]="selectedClient" (onChange)="onClientChange($event)"></p-dropdown>
+                    <p-dropdown id="client" optionLabel="name" [options]="clients" [(ngModel)]="selectedClient"
+                        (onChange)="onClientChange($event)"></p-dropdown>
                 </div>
                 <div class="field col-12 md:col-6">
                     <label htmlFor="documentType">Tipo Documento</label> <br>
@@ -16,8 +16,98 @@
             </div>
         </div>
     </div>
-    <div *ngIf="imageBase64">
-        <img [src]="imageBase64" alt="Fetched Image" />
+    <div class="col-12 md:col-12" *ngIf="imageLogoBase64 && imageSignatureBase64">
+        <div class="card">
+            <h5>Assets</h5>
+            <div class="assets-container">
+                <div class="logo-container" *ngIf="imageLogoBase64">
+                    <img [src]="imageLogoBase64" alt="Fetched Image" />
+                </div>
+                <div class="signature-container" *ngIf="imageSignatureBase64">
+                    <img [src]="imageSignatureBase64" alt="Fetched Image" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-12 md:col-12">
+        <div class="card">
+            <form [formGroup]="clientForm">
+                <h5>Dati cliente</h5>
+                <div class="p-fluid p-formgrid grid">
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="name1">Nome</label>
+                        <input pInputText id="name1" type="text" placeholder="Azienda SRL" formControlName="name"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="email1">Email</label>
+                        <input pInputText id="email1" type="text" placeholder="cliente@email.it" formControlName="email"
+                            ngModel />
+
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="phone1">Telefono</label>
+                        <input pInputText id="phone1" type="text" placeholder="021234523" formControlName="phone"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="address1">Indirizzo</label>
+                        <input pInputText id="address1" type="text" placeholder="Via Roma 1" formControlName="address"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="city1">Città</label>
+                        <input pInputText id="city1" type="text" placeholder="Milano" formControlName="city" ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="postalCode1">Codice Postale</label>
+                        <input pInputText id="postalCode1" type="text" placeholder="20100" formControlName="postalCode"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="country1">Nazione</label>
+                        <input pInputText id="country1" type="text" placeholder="Italia" formControlName="country"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="vat1">P.IVA</label>
+                        <input pInputText id="vat1" type="text" placeholder="81232412323" formControlName="vat"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="pec1">PEC</label>
+                        <input pInputText id="pec1" type="text" placeholder="cliente@pec.it" formControlName="pec"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="cfepi1">C.F. E P.I.</label>
+                        <input pInputText id="cfepi1" type="text" placeholder="1256454545" formControlName="cfepi"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="rea1">REA</label>
+                        <input pInputText id="rea1" type="text" placeholder="MI-1234567" formControlName="rea"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="posinps1">POS.INPS</label>
+                        <input pInputText id="posinps1" type="text" placeholder="5901234567" formControlName="posinps"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="patinail1">PAT.INAIL</label>
+                        <input pInputText id="patinail1" type="text" placeholder="956123412" formControlName="patinail"
+                            ngModel />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="cassaedile1">Cassa Edile</label>
+                        <input pInputText id="cassaedile1" type="text" placeholder="48488" formControlName="cassaedile"
+                            ngModel />
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
 
@@ -34,6 +124,11 @@
                     <div class="field col-12 md:col-4">
                         <label htmlFor="surname1">Cognome</label>
                         <input pInputText id="surname1" type="text" formControlName="surname" placeholder="Rossi" />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="fiscalCode1">Codice fiscale</label>
+                        <input pInputText id="fiscalCode1" type="text" formControlName="fiscalCode"
+                            placeholder="DNTCRL65S67M126L" />
                     </div>
                     <div class="field col-12 md:col-4">
                         <label htmlFor="datacorrente1">Data corrente</label>
@@ -66,16 +161,90 @@
                             placeholder="MURATORE EDILE" />
                     </div>
                     <div class="field col-12 md:col-4">
+                        <label htmlFor="usercountry1">Paese di nascita</label>
+                        <input pInputText id="usercountry1" type="text" formControlName="country"
+                            placeholder="Italia" />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="datanascita1">Data di nascita</label>
+                        <input pInputText id="datanascita1" type="date" formControlName="dataNascita"
+                            placeholder="YYYY-MM-DD" />
+                    </div>
+
+                    <div class="field col-12 md:col-4">
                         <label htmlFor="workingHours1">Ore Lavoro Settimanali</label>
                         <input pInputText id="workingHours1" type="text" formControlName="workingHours"
                             placeholder="40" />
                     </div>
-                </div>
-                <div class="flex justify-content-center align-items-center gap-2">
-                    <button pButton pRipple label="Crea documento docx" class="w-full p-3 text-xl"
-                        (click)="generateUserDocx()" type="button"></button>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="numeroMatricola1">Numero matricola</label>
+                        <input pInputText id="numeroMatricola1" type="text" formControlName="numeroMatricola"
+                            placeholder="82" />
+                    </div>
+                    <div class="field col-12 md:col-4">
+                        <label htmlFor="foto1">Foto tessera</label>
+                        <input type="file" (change)="onImageSelected($event)" accept="image/*">
+                    </div>
+
+
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="col-12 md:col-12">
+        <div class="card">
+            <div class="tesserino-container" id="tesserino">
+                <!-- Intestazione -->
+                <div class="header">
+                    <h1>{{this.clienteTesserino?.name | uppercase}}</h1>
+                    <p>TESSERINO DI RICONOSCIMENTO MATR. N. {{this.utenteTesserino?.numeroMatricola}} </p>
+                </div>
+
+                <!-- Foto e Dati personali -->
+                <div class="content">
+                    <div class="foto-tessera">
+                        <img [src]="imagePreview" alt="Image Preview" width="300">
+                    </div>
+
+                    <div class="dati-personali">
+                        <p><strong>Cognome:</strong> <span class="field">{{this.utenteTesserino?.surname}}</span></p>
+                        <p><strong>Nome:</strong> <span class="field">{{this.utenteTesserino?.name}}</span></p>
+                        <p><strong>Luogo di nascita:</strong> <span
+                                class="field">{{this.utenteTesserino?.country}}</span></p>
+                        <p><strong>Data:</strong> <span class="field">{{this.utenteTesserino?.dataNascita}}</span></p>
+                        <p><strong>Qualifica:</strong> <span class="field">{{this.utenteTesserino?.duties}}</span></p>
+                        <p><strong>Assunto il:</strong> <span class="field">{{this.utenteTesserino?.startDate}}</span>
+                        </p>
+                        <p><strong>Codice fiscale:</strong> <span
+                                class="field">{{this.utenteTesserino?.fiscalCode}}</span></p>
+                    </div>
+                </div>
+
+                <!-- Dati azienda -->
+                <div class="dati-azienda">
+                    <h2>DATI AZIENDA:</h2>
+                    <p><strong>NOME:</strong> {{this.clienteTesserino?.name | uppercase}} -
+                        {{this.clienteTesserino?.address | uppercase}} {{this.clienteTesserino?.city | uppercase}}</p>
+                    <p><strong>C.F. E P.I.:</strong> {{this.clienteTesserino?.cfepi }}</p>
+                    <p><strong>REA:</strong> {{this.clienteTesserino?.rea }}<strong> POS.INPS:</strong>
+                        {{this.clienteTesserino?.posinps }}</p>
+                    <p><strong>PAT.INAIL:</strong> {{this.clienteTesserino?.patinail }} <strong>CASSA EDILE:</strong>
+                        {{this.clienteTesserino?.cassaedile }}</p>
+                    <p><strong>Email:</strong> {{this.clienteTesserino?.email}}</p>
+                </div>
+            </div>
+            <button pButton pRipple label="Scarica TESSERINO" class="download-button p-3" (click)="downloadAsPng()"
+                type="button"></button>
+        </div>
+    </div>
+    <div class="col-12 md:col-12">
+        <div class="card">
+            <div class="flex justify-content-center align-items-center gap-2">
+                <button pButton pRipple label="Crea documento docx" class="w-full p-3 text-xl"
+                    (click)="downloadSingleDocument()" type="button"></button>
+                <button pButton pRipple label="Crea ZIP" class="w-full p-3 text-xl" (click)="downloadAllDocuments()"
+                    type="button"></button>
+            </div>
         </div>
     </div>
 </div>

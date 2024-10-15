@@ -60,7 +60,7 @@
                     </div>
                     
                     <div class="field col-12 md:col-4">
-                        <label htmlFor="signature1">Firma</label>
+                        <label htmlFor="signature1">Timbro/Firma</label>
                         <input type="file" id="signature1" (change)="onFileChange($event, 'signature')" accept="image/png"  />
                         <div *ngIf="signaturePreview">
                             <img [src]="signaturePreview" alt="Signature Preview" style="max-width: 100px; max-height: 100px;" />

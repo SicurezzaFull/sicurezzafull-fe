@@ -52,3 +52,94 @@
         }
     }
 }
+
+.assets-container {
+    display: flex;
+    .logo-container {
+        img {
+            width: 200px;
+        }
+    }
+
+    .signature-container {
+        img {
+            width: 200px;
+        }
+    }
+}
+
+.tesserino-container {
+    width: 450px;
+    padding: 20px;
+    border: 1px solid #000;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+
+    .header {
+        text-align: center;
+        background-color: #ffcc99;
+        padding: 10px;
+        border-bottom: 1px solid #000;
+
+        h1 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+    }
+
+    .content {
+        display: flex;
+        padding: 20px 0;
+        border-bottom: 1px solid #000;
+
+        .foto-tessera {
+            margin-right: 20px;
+
+            img {
+                width: 120px;
+                height: 150px;
+                border: 1px solid #000;
+            }
+        }
+
+        .dati-personali {
+            flex: 1;
+
+            p {
+                margin: 5px 0;
+                display: flex;
+                justify-content: space-between;
+
+                .field {
+                    flex: 1;
+                    border-bottom: 1px dashed #000;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    .dati-azienda {
+        padding: 10px 0;
+
+        p {
+            margin: 5px 0;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+    }
+}
+
+.download-button {
+    margin: 1rem;
+    width: 200px;
+}
