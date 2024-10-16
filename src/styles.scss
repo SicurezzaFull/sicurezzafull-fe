@@ -12,3 +12,11 @@ $gutter: 1rem; //for primeflex grid system
 @import "assets/shared/styles/flags/flags.css";
 @import "assets/shared/styles/badges.scss";
 @import "assets/shared/styles/code.scss";
+@import "assets/scss/index.scss";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto-Medium";
+}

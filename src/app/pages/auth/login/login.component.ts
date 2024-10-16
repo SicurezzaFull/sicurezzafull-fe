@@ -14,29 +14,7 @@ import { environment } from 'src/environments/environment';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styles: [
-        `
-            :host ::ng-deep .pi-eye,
-            :host ::ng-deep .pi-eye-slash {
-                transform: scale(1.6);
-                margin-right: 1rem;
-                color: var(--primary-color) !important;
-            }
-            .assistance-wrapper {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 1rem;
-            }
-            .currentdate-wrapper {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 0.5rem;
-                font-size: 0.6rem;
-            }
-        `,
-    ],
+    styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
     //Global variables
