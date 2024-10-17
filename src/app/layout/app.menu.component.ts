@@ -254,7 +254,7 @@ export class AppMenuComponent implements OnInit {
             });
             this.model.push({
                 label: 'Documents',
-                translationCode: 'menu.routes.documents.menuTitle',
+                translationCode: 'menu.routes.documents.menuTitleCustomer',
                 items: [
                     {
                         label: 'Generate document',
