@@ -106,13 +106,13 @@ export class AppLayoutComponent implements OnDestroy, OnInit {
         const userRoles = this.authService.getRoles();
         if (
             userRoles.includes('ROLE_ADMIN') ||
-            userRoles.includes('ROLE_MODERATOR')
+            userRoles.includes('ROLE_MODERATOR') ||
+            userRoles.includes('ROLE_CLIENTMANAGEMENT')
+
         ) {
             this.router.navigate([ROUTES.ROUTE_DASHBOARD]);
         }
-        if (userRoles.includes('ROLE_ACCOUNTING')) {
-            this.router.navigate([ROUTES.ROUTE_TABLE_DEADLINES]);
-        }
+
         if (userRoles.includes('ROLE_WORKER')) {
             this.router.navigate([ROUTES.ROUTE_LANDING_HOME]);
         }
@@ -152,8 +152,8 @@ export class AppLayoutComponent implements OnDestroy, OnInit {
             document.body.className = document.body.className.replace(
                 new RegExp(
                     '(^|\\b)' +
-                        'blocked-scroll'.split(' ').join('|') +
-                        '(\\b|$)',
+                    'blocked-scroll'.split(' ').join('|') +
+                    '(\\b|$)',
                     'gi',
                 ),
                 ' ',

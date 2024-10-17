@@ -18,9 +18,9 @@ const API_URL = environment.endpoint;
   styleUrls: ['./contratto-document.component.scss']
 })
 export class ContrattoDocumentComponent implements OnInit {
-generateImage() {
-throw new Error('Method not implemented.');
-}
+  generateImage() {
+    throw new Error('Method not implemented.');
+  }
   detailForm: FormGroup;
   clientForm: FormGroup;
   documentTypes: { label: string; value: string }[] = [
@@ -102,10 +102,10 @@ throw new Error('Method not implemented.');
       this.selectedClient = clients[0]
     });
     this.detailForm.valueChanges.subscribe(value => {
-      this.utenteTesserino= value;
+      this.utenteTesserino = value;
 
     });
-    
+
     this.clientForm.valueChanges.subscribe(value => {
       this.clienteTesserino = value;
     });
@@ -116,7 +116,7 @@ throw new Error('Method not implemented.');
   onImageSelected(event: any): void {
     const file = event.target.files[0];
     if (file) {
-      
+
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreview = reader.result;
@@ -2232,17 +2232,19 @@ throw new Error('Method not implemented.');
         ],
       });
     }
+    
 
     return Packer.toBlob(doc).then(blob => {
-      const fileName = this.generateFileName(documentType);
+      let fileName = this.generateFileName(documentType);
       this.filesToDownload.push({ name: fileName, blob });
+
     });
 
   }
 
   // Function to handle creating all documents
   private createAllDocuments(all): void {
-   
+
 
     this.formDetailUserValues = this.detailForm.value;
 
@@ -2259,6 +2261,7 @@ throw new Error('Method not implemented.');
     }
 
     if (this.selectedDocumentType === 'DPI' || all) {
+
       this.docPromises.push(this.createDocument('DPI'));
     }
 
@@ -2297,7 +2300,9 @@ throw new Error('Method not implemented.');
 
   // Function to download a single selected document
   downloadSingleDocument(): void {
+    this.filesToDownload = [];
     this.createAllDocuments(false);
+
     Promise.all(this.docPromises).then(() => {
       if (this.filesToDownload.length > 0) {
         saveAs(this.filesToDownload[0].blob, this.filesToDownload[0].name);
@@ -2315,7 +2320,6 @@ throw new Error('Method not implemented.');
       if (this.filesToDownload.length > 1) {
         const zip = new JSZip();
         this.filesToDownload.forEach(file => {
-          console.log(this.filesToDownload)
           zip.file(file.name, file.blob);
         });
 

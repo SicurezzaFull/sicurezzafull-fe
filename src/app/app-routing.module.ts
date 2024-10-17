@@ -20,8 +20,9 @@ import { AuthGuard } from './services/auth.guard';
                                     './pages/dashboard/dashboard.module'
                                 ).then((m) => m.DashboardModule),
                             canActivate: [AuthGuard],
+
                             data: {
-                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR'],
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_CLIENTMANAGEMENT'],
                             },
                         },
                         {
@@ -32,7 +33,7 @@ import { AuthGuard } from './services/auth.guard';
                                 ).then((m) => m.NotificationModule),
                             canActivate: [AuthGuard],
                             data: {
-                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR'],
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_CLIENTMANAGEMENT'],
                             },
                         },
                         {
@@ -47,6 +48,7 @@ import { AuthGuard } from './services/auth.guard';
                                     'ROLE_WORKER',
                                     'ROLE_ADMIN',
                                     'ROLE_MODERATOR',
+                                    'ROLE_CLIENTMANAGEMENT'
                                 ],
                             },
                         },
@@ -58,7 +60,7 @@ import { AuthGuard } from './services/auth.guard';
                                 ),
                             canActivate: [AuthGuard],
                             data: {
-                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR'],
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_CLIENTMANAGEMENT'],
                             },
                         },
                         {
@@ -69,7 +71,7 @@ import { AuthGuard } from './services/auth.guard';
                                 ),
                             canActivate: [AuthGuard],
                             data: {
-                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR'],
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_CLIENTMANAGEMENT'],
                             },
                         },
                         {
@@ -80,7 +82,7 @@ import { AuthGuard } from './services/auth.guard';
                                 ),
                             canActivate: [AuthGuard],
                             data: {
-                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR'],
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_CLIENTMANAGEMENT'],
                             },
                         },
                         {
@@ -91,7 +93,7 @@ import { AuthGuard } from './services/auth.guard';
                                 ),
                             canActivate: [AuthGuard],
                             data: {
-                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR'],
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR','ROLE_CLIENTMANAGEMENT'],
                             },
                         },
                         {
@@ -102,7 +104,7 @@ import { AuthGuard } from './services/auth.guard';
                                 ).then((m) => m.AttendanceModule),
                             canActivate: [AuthGuard],
                             data: {
-                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR'],
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_CLIENTMANAGEMENT'],
                             },
                         },
                         {
@@ -113,7 +115,7 @@ import { AuthGuard } from './services/auth.guard';
                                 ).then((m) => m.PermissionModule),
                             canActivate: [AuthGuard],
                             data: {
-                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR'],
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_CLIENTMANAGEMENT'],
                             },
                         },
                         {
@@ -124,7 +126,7 @@ import { AuthGuard } from './services/auth.guard';
                                 ).then((m) => m.DeadlinesModule),
                             canActivate: [AuthGuard],
                             data: {
-                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_ACCOUNTING'],
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_CLIENTMANAGEMENT'],
                             },
                         },
                         {
@@ -135,7 +137,7 @@ import { AuthGuard } from './services/auth.guard';
                                 ).then((m) => m.WorkforceModule),
                             canActivate: [AuthGuard],
                             data: {
-                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_ACCOUNTING'],
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_CLIENTMANAGEMENT'],
                             },
                         },
                         {
@@ -146,7 +148,7 @@ import { AuthGuard } from './services/auth.guard';
                                 ),
                             canActivate: [AuthGuard],
                             data: {
-                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR'],
+                                roles: ['ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_CLIENTMANAGEMENT'],
                             },
                         },
 

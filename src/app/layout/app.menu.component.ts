@@ -177,6 +177,148 @@ export class AppMenuComponent implements OnInit {
             //     ],
             // });
         }
+
+        if (userRoles.includes('ROLE_CLIENTMANAGEMENT')) {
+            this.model.push({
+                label: 'Dashboard',
+                translationCode: 'menu.routes.dashboard.menuTitle',
+                items: [
+                    {
+                        label: 'Dashboard',
+                        translationCode: 'menu.routes.dashboard.menuTitle',
+                        icon: 'pi pi-fw pi-home',
+                        routerLink: [ROUTES.ROUTE_DASHBOARD],
+                    },
+                ],
+            });
+            // this.model.push({
+            //     label: 'Notification',
+            //     translationCode: 'menu.routes.notification.menuTitle',
+            //     items: [
+            //         {
+            //             label: 'Notification',
+            //             translationCode: 'menu.routes.notification.menuTitle',
+            //             icon: 'pi pi-fw pi-send',
+            //             routerLink: [ROUTES.ROUTE_NOTIFICATION],
+            //         },
+            //     ],
+            // });
+            this.model.push({
+                label: 'Attendances',
+                translationCode: 'menu.routes.attendance.menuTitle',
+                items: [
+                    {
+                        label: 'Attendance users list',
+                        translationCode: 'menu.routes.attendance.users',
+                        icon: 'pi pi-users',
+                        routerLink: [ROUTES.ROUTE_USERS_ATTENDANCE],
+                    },
+                    {
+                        label: 'Attendance list',
+                        translationCode: 'menu.routes.attendance.table',
+                        icon: 'pi pi-list',
+                        routerLink: [ROUTES.ROUTE_TABLE_ATTENDANCE],
+                    },
+                ],
+            });
+            this.model.push({
+                label: 'Permissions',
+                translationCode: 'menu.routes.permission.menuTitle',
+                items: [
+                    {
+                        label: 'Permission list',
+                        translationCode: 'menu.routes.permission.table',
+                        icon: 'pi pi-list',
+                        routerLink: [ROUTES.ROUTE_TABLE_PERMISSION],
+                    },
+                ],
+            });
+
+            this.model.push({
+                label: 'Users',
+                translationCode: 'menu.routes.user.menuTitle',
+                items: [
+                    {
+                        label: 'User list',
+                        translationCode: 'menu.routes.user.table',
+                        icon: 'pi pi-users',
+                        routerLink: [ROUTES.ROUTE_TABLE_USER],
+                    },
+                    {
+                        label: 'Add user',
+                        translationCode: 'menu.routes.user.create',
+                        icon: 'pi pi-user-plus',
+                        routerLink: [ROUTES.ROUTE_CREATE_USER],
+                    },
+                ],
+            });
+            this.model.push({
+                label: 'Documents',
+                translationCode: 'menu.routes.documents.menuTitle',
+                items: [
+                    {
+                        label: 'Generate document',
+                        translationCode: 'menu.routes.documents.generate',
+                        icon: 'pi pi-file',
+                        routerLink: [ROUTES.ROUTE_CREATE_CONTRATTI],
+                    },
+                ],
+            });
+            this.model.push({
+                label: 'Aziende',
+                translationCode: 'menu.routes.company.menuTitle',
+                items: [
+                    {
+                        label: 'Lista aziende',
+                        translationCode: 'menu.routes.company.table',
+                        icon: 'pi pi-list',
+                        routerLink: [ROUTES.ROUTE_TABLE_COMPANY],
+                    },
+                    {
+                        label: 'Aggiungi azienda',
+                        translationCode: 'menu.routes.company.create',
+                        icon: 'pi pi-plus-circle',
+                        routerLink: [ROUTES.ROUTE_CREATE_COMPANY],
+                    },
+                ],
+            });
+            this.model.push({
+                label: 'Clienti',
+                translationCode: 'menu.routes.client.menuTitle',
+                items: [
+                    {
+                        label: 'Lista clienti',
+                        translationCode: 'menu.routes.client.table',
+                        icon: 'pi pi-list',
+                        routerLink: [ROUTES.ROUTE_TABLE_CLIENT],
+                    },
+                    {
+                        label: 'Aggiungi azienda',
+                        translationCode: 'menu.routes.client.create',
+                        icon: 'pi pi-plus-circle',
+                        routerLink: [ROUTES.ROUTE_CREATE_CLIENT],
+                    },
+                ],
+            });
+            // this.model.push({
+            //     label: 'Vehicles',
+            //     translationCode: 'menu.routes.vehicle.menuTitle',
+            //     items: [
+            //         {
+            //             label: 'Lista veicoli',
+            //             translationCode: 'menu.routes.vehicle.table',
+            //             icon: 'pi pi-list',
+            //             routerLink: [ROUTES.ROUTE_TABLE_VEHICLE],
+            //         },
+            //         {
+            //             label: 'Aggiungi veicolo',
+            //             translationCode: 'menu.routes.vehicle.create',
+            //             icon: 'pi pi-car',
+            //             routerLink: [ROUTES.ROUTE_CREATE_VEHICLE],
+            //         },
+            //     ],
+            // });
+        }
         if (
             userRoles.includes('ROLE_ADMIN') ||
             userRoles.includes('ROLE_MODERATOR') ||
@@ -211,7 +353,7 @@ export class AppMenuComponent implements OnInit {
         if (
             userRoles.includes('ROLE_WORKER') ||
             userRoles.includes('ROLE_ADMIN') ||
-            userRoles.includes('ROLE_MODERATOR')
+            userRoles.includes('ROLE_CLIENTMANAGEMENT')
         ) {
             this.model.push({
                 label: 'Landing',
