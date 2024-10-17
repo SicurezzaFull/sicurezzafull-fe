@@ -111,6 +111,7 @@
             },
             "documents": {
                 "menuTitle": "Documenti/Cedolini",
+                "menuTitleCustomer": "Documenti",
                 "create": "Aggiungi cedolini",
                 "generate": "Genera contratti"
             },

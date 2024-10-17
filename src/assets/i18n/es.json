@@ -111,6 +111,7 @@
             },
             "documents": {
                 "menuTitle": "Documentos",
+                "menuTitleCustomer": "Documentos",
                 "create": "Agrega documentos",
                 "generate": "Genera contratos"
             },

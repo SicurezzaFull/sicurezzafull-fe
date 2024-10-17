@@ -111,6 +111,7 @@
             },
             "documents": {
                 "menuTitle": "Documents",
+                "menuTitleCustomer": "Documents",
                 "create": "Add documents",
                 "generate": "Generate documents"
             },
