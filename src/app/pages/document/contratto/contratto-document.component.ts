@@ -155,7 +155,12 @@ export class ContrattoDocumentComponent implements OnInit {
       postalCode: this.selectedClient.postalCode,
       country: this.selectedClient.country,
       vat: this.selectedClient.vat,
-      pec: this.selectedClient.pec
+      pec: this.selectedClient.pec,
+      cfepi: this.selectedClient.cfepi,
+      rea: this.selectedClient.rea,
+      posinps: this.selectedClient.posinps,
+      patinail: this.selectedClient.patinail,
+      cassaedile: this.selectedClient.cassaedile,
     });
     this.clienteTesserino = this.clientForm.value;
 
@@ -2232,7 +2237,7 @@ export class ContrattoDocumentComponent implements OnInit {
         ],
       });
     }
-    
+
 
     return Packer.toBlob(doc).then(blob => {
       let fileName = this.generateFileName(documentType);

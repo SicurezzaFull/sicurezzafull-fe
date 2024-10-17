@@ -34,6 +34,11 @@ export class ClientService {
         country: string,
         vat: string,
         pec: string,
+        cfepi: string,
+        rea: string,
+        posinps: string,
+        patinail: string,
+        cassaedile: string,
         signatureFile?: File,
         logoFile?: File,
         status?: boolean
@@ -48,6 +53,11 @@ export class ClientService {
         formData.append('country', country);
         formData.append('vat', vat);
         formData.append('pec', pec);
+        formData.append('cfepi', cfepi);
+        formData.append('rea', rea);
+        formData.append('posinps', posinps);
+        formData.append('patinail', patinail);
+        formData.append('cassaedile', cassaedile);
         formData.append('signature', signatureFile); // Add file to form data
         formData.append('logo', logoFile); // Add file to form data
         formData.append('status', String(status)); // Append status as string if it's boolean
@@ -67,6 +77,11 @@ export class ClientService {
         country: string,
         vat: string,
         pec: string,
+        cfepi: string,
+        rea: string,
+        posinps: string,
+        patinail: string,
+        cassaedile: string,
         signature: string,
         logo: string
     ): Observable<any> {
@@ -82,6 +97,11 @@ export class ClientService {
                 country,
                 vat,
                 pec,
+                cfepi,
+                rea,
+                posinps,
+                patinail,
+                cassaedile,
                 signature,
                 logo,
             },

@@ -55,6 +55,11 @@ export class CreateClientComponent implements OnInit { // Cambiato qui
         country: ['', [Validators.required]],
         vat: ['', [Validators.required]],
         pec: ['', [Validators.required]],
+        cfepi: ['', [Validators.required]],
+        rea: ['', [Validators.required]],
+        posinps: ['', [Validators.required]],
+        patinail: ['', [Validators.required]],
+        cassaedile: ['', [Validators.required]],
         status: [true],
     });
 
@@ -85,6 +90,11 @@ export class CreateClientComponent implements OnInit { // Cambiato qui
                 this.createForm.value.country,
                 this.createForm.value.vat,
                 this.createForm.value.pec,
+                this.createForm.value.cfepi,
+                this.createForm.value.rea,
+                this.createForm.value.posinps,
+                this.createForm.value.patinail,
+                this.createForm.value.cassaedile,
                 this.signatureFile,
                 this.logoFile,
                 this.createForm.value.status

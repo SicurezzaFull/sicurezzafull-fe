@@ -26,6 +26,11 @@ export class DetailClientComponent implements OnInit {  // Modificato
         postalCode: [''], // Aggiunto
         country: [''],  // Aggiunto
         pec: [''],
+        cfepi: [''],
+        rea: [''],
+        posinps: [''],
+        patinail: [''],
+        cassaedile: [''],
         signature: [''],  // Aggiunto
         logo: [''],  // Aggiunto
     });
@@ -67,6 +72,11 @@ export class DetailClientComponent implements OnInit {  // Modificato
                         postalCode: client.postalCode,  // Aggiunto
                         country: client.country,  // Aggiunto
                         pec: client.pec,
+                        cfepi: client.cfepi,
+                        rea: client.rea,
+                        posinps: client.posinps,
+                        patinail: client.patinail,
+                        cassaedile: client.cassaedile,
                         signature: client.signature,  // Aggiunto
                         logo: client.logo,  // Aggiunto
                     });
@@ -82,6 +92,11 @@ export class DetailClientComponent implements OnInit {  // Modificato
             this.detailForm.controls['postalCode'].disable({ onlySelf: true });  // Aggiunto
             this.detailForm.controls['country'].disable({ onlySelf: true });  // Aggiunto
             this.detailForm.controls['pec'].disable({ onlySelf: true });
+            this.detailForm.controls['cfepi'].disable({ onlySelf: true });
+            this.detailForm.controls['rea'].disable({ onlySelf: true });
+            this.detailForm.controls['posinps'].disable({ onlySelf: true });
+            this.detailForm.controls['patinail'].disable({ onlySelf: true });
+            this.detailForm.controls['cassaedile'].disable({ onlySelf: true });
             this.detailForm.controls['signature'].disable({ onlySelf: true });  // Aggiunto
             this.detailForm.controls['logo'].disable({ onlySelf: true });  // Aggiunto
         });

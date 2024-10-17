@@ -51,6 +51,11 @@ export class ModifyClientComponent implements OnInit {
                     country: client.country,
                     vat: client.vat,
                     pec: client.pec,
+                    cfepi: client.cfepi,
+                    rea: client.rea,
+                    posinps: client.posinps,
+                    patinail: client.patinail,
+                    cassaedile: client.cassaedile,
                     signature: client.signature,
                     logo: client.logo,
                 });
@@ -69,6 +74,11 @@ export class ModifyClientComponent implements OnInit {
         country: ['', [Validators.required]],
         vat: ['', [Validators.required]],
         pec: ['', [Validators.required]],
+        cfepi: ['', [Validators.required]],
+        rea: ['', [Validators.required]],
+        posinps: ['', [Validators.required]],
+        patinail: ['', [Validators.required]],
+        cassaedile: ['', [Validators.required]],
         signature: [''],
         logo: [''],
     });
@@ -86,6 +96,11 @@ export class ModifyClientComponent implements OnInit {
                 this.modifyForm.value.country,
                 this.modifyForm.value.vat,
                 this.modifyForm.value.pec,
+                this.modifyForm.value.cfepi,
+                this.modifyForm.value.rea,
+                this.modifyForm.value.posinps,
+                this.modifyForm.value.patinail,
+                this.modifyForm.value.cassaedile,
                 this.modifyForm.value.signature,
                 this.modifyForm.value.logo
             )
