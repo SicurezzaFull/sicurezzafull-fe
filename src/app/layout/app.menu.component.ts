@@ -274,12 +274,12 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-list',
                         routerLink: [ROUTES.ROUTE_TABLE_COMPANY],
                     },
-                    {
-                        label: 'Aggiungi azienda',
-                        translationCode: 'menu.routes.company.create',
-                        icon: 'pi pi-plus-circle',
-                        routerLink: [ROUTES.ROUTE_CREATE_COMPANY],
-                    },
+                    // {
+                    //     label: 'Aggiungi azienda',
+                    //     translationCode: 'menu.routes.company.create',
+                    //     icon: 'pi pi-plus-circle',
+                    //     routerLink: [ROUTES.ROUTE_CREATE_COMPANY],
+                    // },
                 ],
             });
             this.model.push({
